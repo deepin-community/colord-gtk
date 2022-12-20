@@ -1,0 +1,81 @@
+colord-gtk (0.1.26-2-deepin1) unstable; urgency=medium
+
+  * Rebuild
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 24 Nov 2022 07:23:05 +0800
+
+colord-gtk (0.1.26-2) unstable; urgency=medium
+
+  [ Christopher James Halse Rogers ]
+  * Acknowledge NMU. Thanks to Andreas Moog!
+  * Drop the GTK2 build, it's unused (Closes: #883334)
+  * Add GIR dependency on the -dev package, as per gobject-introspection
+    mini-policy.
+  * debian/copyright:
+    + Use https protocol for copyright-format URL
+    + Use https:// for upstream URL
+  * debian/control:
+    + Wrap long line in colord-gtk-utils extended description
+    + colord-gtk-utils can inherit Section from the source package
+    + Use https:// URI for Homepage
+    + Use canonical Vcs-* URIs.
+    + Mark libcolord-gtk-dev and gir1.2- packages as Multi-Arch: same
+  * debian/rules:
+    + Correctly set hardening flags
+  * debian/gir1.2-colordgtk-1.0.install: Install typelib into multiarch path.
+  * debian/watch: Add PGP signature verification
+  * Bump Standards-Version to 4.1.2
+
+  [ Jeremy Bicha ]
+  * Bump debhelper compat to 10
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Tue, 12 Dec 2017 11:54:22 +1100
+
+colord-gtk (0.1.26-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Add intltool to Build-Depends to fix FTBFS with newer version of
+    gtk-doc-tools (Closes: #837843)
+
+ -- Andreas Moog <andreas.moog@warperbbs.de>  Thu, 08 Dec 2016 18:07:34 +0100
+
+colord-gtk (0.1.26-1) unstable; urgency=medium
+
+  * Acknowledge NMU. Thanks to Margarita Manterola!
+  * Package new cd-convert utility in colord-gtk-utils
+  * Add a GTK2 build of colord-gtk library.
+    Somewhat late, but there's still plenty of GTK2 code around that
+    could benefit. (Closes: 678715)
+  * Bump Standards-Version; no changes required
+  * Add docbook-utils Build-Dependency for cd-convert manpage generation.
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Fri, 27 Nov 2015 07:56:07 +0100
+
+colord-gtk (0.1.25-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add Breaks-Replaces with gir1.2-colord-1.0 << 0.1.31-1, which used to ship
+    /usr/lib/girepository-1.0/ColordGtk-1.0.typelib. (Closes: 718002)
+
+ -- Margarita Manterola <marga@debian.org>  Sun, 24 Nov 2013 19:45:01 +0100
+
+colord-gtk (0.1.25-1) unstable; urgency=low
+
+  [ Jeremy Bicha ]
+  * New upstream release
+  * debian/control:
+    - Bump minimum colord
+    - Build with default valac
+
+  [ Christopher James Halse Rogers ]
+  * debian/copyright:
+    - Update licence for cd-sample-widget.*
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Thu, 27 Jun 2013 11:54:55 +1000
+
+colord-gtk (0.1.24-1) experimental; urgency=low
+
+  * Initial release (Closes: 702620)
+  * Based on the Ubuntu packaging; thanks Jeremy Bicha and Robert Ancell!
+
+ -- Christopher James Halse Rogers <raof@ubuntu.com>  Sat, 09 Mar 2013 18:11:02 +1100

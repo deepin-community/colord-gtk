@@ -1,0 +1,86 @@
+Source: colord-gtk
+Priority: optional
+Maintainer: Christopher James Halse Rogers <raof@ubuntu.com>
+Build-Depends: debhelper (>= 10),
+               gtk-doc-tools,
+               libglib2.0-dev (>= 2.28.0),
+               libgtk-3-dev,
+               libcolord-dev (>= 0.1.27),
+               gir1.2-colord-1.0,
+               liblcms2-dev (>= 2.2),
+               valac (>= 0.16),
+               gobject-introspection,
+               libgirepository1.0-dev,
+               docbook-utils,
+               intltool
+Standards-Version: 4.1.2
+Section: graphics
+Homepage: https://www.freedesktop.org/software/colord/
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/colord-gtk.git
+Vcs-Browser: https://anonscm.debian.org/git/collab-maint/colord-gtk.git
+
+Package: libcolord-gtk1
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Recommends: colord
+Pre-Depends: ${misc:Pre-Depends}
+Multi-Arch: same
+Description: GTK+ convenience library for interacting with colord
+ colord is a system service that makes it easy to manage, install and generate
+ colour profiles to accurately colour manage input and output devices.
+ .
+ This is a GTK+ convenience library for interacting with colord. It is useful
+ for both applications which need colour management and applications that wish
+ to perform colour calibration.
+ .
+ This package contains the runtime libraries.
+
+Package: libcolord-gtk-dev
+Section: libdevel
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libcolord-gtk1 (= ${binary:Version}),
+         gir1.2-colordgtk-1.0 (= ${binary:Version}),
+         ${shlibs:Depends},
+         ${misc:Depends}
+Description: GTK+ convenience library for interacting with colord - dev files
+ colord is a system service that makes it easy to manage, install and generate
+ colour profiles to accurately colour manage input and output devices.
+ .
+ This is a GTK+ convenience library for interacting with colord. It is useful
+ for both applications which need colour management and applications that wish
+ to perform colour calibration.
+ .
+ This package contains the development files necessary for a GTK+ program
+ to build against the libcolord-gtk library.
+
+Package: gir1.2-colordgtk-1.0
+Section: introspection
+Architecture: any
+Multi-Arch: same
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${gir:Depends},
+         ${shlibs:Depends},
+         ${misc:Depends}
+Breaks: gir1.2-colord-1.0 (<< 0.1.31-1)
+Replaces: gir1.2-colord-1.0 (<< 0.1.31-1)
+Description: GObject introspection data for the colord-gtk library
+ This package contains introspection data for libcolord-gtk, a gobject-based
+ convenience library for programs to interact with the colord system daemon.
+ .
+ It can be used by packages using the GIRepository format to generate
+ dynamic bindings.
+
+Package: colord-gtk-utils
+Architecture: any
+Depends: ${shlibs:Depends},
+         ${misc:Depends}
+Description: miscellaneous GUI utilities interacting with colord
+ This package contains graphical utilities for interacting with colord,
+ including:
+  * cd-convert: A tool for converting a pair of .ti3 files to a .ccmx file,
+                or generating a .ti3 device sample file from a .ti1
+                target file.
